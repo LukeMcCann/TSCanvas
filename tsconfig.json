@@ -1,12 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "checkJs": false,
+    "target": "esnext",
     "lib": ["dom", "es2015"],
-    "module": "umd",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "outDir": "./build",
     "rootDir": "./src",
     "strict": true,
-    "esModuleInterop": true
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
   "include": [
     "src/**/*.ts",
