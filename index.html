@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="build/styles/main.css">
     <title>Creative Code</title>
+
+    <script type="module" src="build/scripts/errors/canvasContextError.js" defer></script>
+    <script type="module" src="build/scripts/errors/canvasNotFoundError.js" defer></script>
+    <script type="module" src="build/scripts/withCanvas/withCanvas.js" defer></script>
+    <script type="module" src="build/index.js" defer></script>
 </head>
 <body>
-  <canvas id="canvas1" width="400" height="200"></canvas>
+  <canvas id="canvas"></canvas>
 
-  <script type="module" src="build/scripts/errors/canvasContextError.js"></script>
-  <script type="module" src="build/scripts/errors/canvasNotFoundError.js"></script>
-  <script type="module" src="build/scripts/withCanvas/withCanvas.js"></script>
-  <script type="module" src="build/index.js"></script>
+  <!-- Message to display if JavaScript is disabled -->
+  <noscript>
+    <p>Your browser does not support JavaScript, or it is disabled. Please enable JavaScript to view this content.</p>
+  </noscript>
 </body>
 </html>

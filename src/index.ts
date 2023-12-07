@@ -1,9 +1,9 @@
 import withCanvas from "./scripts/withCanvas/withCanvas.js";
 
+const draw = (ctx: CanvasRenderingContext2D) => {
+}
+
 withCanvas({
-  canvasId: 'canvas1',
-  callback: (ctx) => {
-    ctx.fillStyle = 'blue';
-    ctx.fillRect(10, 10, 50, 50);
-  }
+  canvasId: 'canvas',
+  draw,
 });

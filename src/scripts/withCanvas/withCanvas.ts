@@ -3,12 +3,18 @@ import CanvasElementNotFoundError from "../errors/canvasNotFoundError.js";
 
 type CanvasCallback = (ctx: CanvasRenderingContext2D) => void;
 
-interface GetCanvasContextProps {
-  canvasId: string;
-  callback: CanvasCallback;
+interface CanvasOptions {
+  width: number;
+  height: number;
 }
 
-const withCanvas = ({ canvasId, callback }: GetCanvasContextProps): void => {
+interface GetCanvasContextProps {
+  canvasId: string;
+  draw: CanvasCallback;
+  options?: CanvasOptions;
+}
+
+const withCanvas = ({ canvasId, draw, options }: GetCanvasContextProps): void => {
   const canvas = document.getElementById(canvasId) as HTMLCanvasElement | null;
 
   if (!canvas) {
@@ -17,11 +23,14 @@ const withCanvas = ({ canvasId, callback }: GetCanvasContextProps): void => {
 
   const ctx = canvas.getContext('2d');
 
+  canvas.width = options?.width ?? 700;
+  canvas.height = options?.height ?? 900;
+
   if (!ctx) {
     throw new CanvasContextError(canvasId);
   }
 
-  callback(ctx);
+  draw(ctx);
 }
 
 export default withCanvas;
