@@ -6,7 +6,7 @@ const options = {
     height: CANVAS_HEIGHT,
 };
 const draw = (ctx) => {
-    const lineA = new Line(ctx);
+    const lineA = new Line({ ctx, width: options.width, height: options.height });
     lineA.draw();
 };
 withCanvas({

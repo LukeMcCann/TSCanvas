@@ -8,7 +8,7 @@ const options = {
 }
 
 const draw = (ctx: CanvasRenderingContext2D) => {
-  const lineA = new Line(ctx);
+  const lineA = new Line({ ctx, width: options.width, height: options.height });
 
   lineA.draw();
 }
