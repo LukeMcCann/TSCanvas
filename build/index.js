@@ -5,9 +5,13 @@ const options = {
     width: CANVAS_WIDTH,
     height: CANVAS_HEIGHT,
 };
+const lines = [];
+const numberOfLines = 50;
 const draw = (ctx) => {
-    const lineA = new Line({ ctx, width: options.width, height: options.height });
-    lineA.draw();
+    for (let i = 0; i < numberOfLines; i++) {
+        lines.push(new Line({ ctx, width: options.width, height: options.height }));
+    }
+    lines.forEach(line => line.draw());
 };
 withCanvas({
     canvasId: 'canvas',

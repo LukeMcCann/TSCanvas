@@ -7,10 +7,15 @@ const options = {
   height: CANVAS_HEIGHT,
 }
 
-const draw = (ctx: CanvasRenderingContext2D) => {
-  const lineA = new Line({ ctx, width: options.width, height: options.height });
+const lines: Line[] = [];
+const numberOfLines = 50;
 
-  lineA.draw();
+const draw = (ctx: CanvasRenderingContext2D) => {
+  for (let i = 0; i < numberOfLines; i++) {
+    lines.push(new Line({ ctx, width: options.width, height: options.height }));
+  }
+
+  lines.forEach(line => line.draw());
 }
 
 withCanvas({
