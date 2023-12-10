@@ -6,15 +6,16 @@ type CanvasCallback = (ctx: CanvasRenderingContext2D) => void;
 interface CanvasOptions {
   width: number;
   height: number;
+  lineWidth?: number;
 }
 
-interface GetCanvasContextProps {
+interface Canvas {
   canvasId: string;
   draw: CanvasCallback;
   options?: CanvasOptions;
 }
 
-const withCanvas = ({ canvasId, draw, options }: GetCanvasContextProps): void => {
+const withCanvas = ({ canvasId, draw, options }: Canvas): void => {
   const canvas = document.getElementById(canvasId) as HTMLCanvasElement | null;
 
   if (!canvas) {
@@ -29,6 +30,8 @@ const withCanvas = ({ canvasId, draw, options }: GetCanvasContextProps): void =>
   if (!ctx) {
     throw new CanvasContextError(canvasId);
   }
+
+  ctx.lineWidth = options?.lineWidth ?? 10;
 
   draw(ctx);
 }

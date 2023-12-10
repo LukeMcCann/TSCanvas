@@ -11,6 +11,7 @@ const withCanvas = ({ canvasId, draw, options }) => {
     if (!ctx) {
         throw new CanvasContextError(canvasId);
     }
+    ctx.lineWidth = options?.lineWidth ?? 10;
     draw(ctx);
 };
 export default withCanvas;
