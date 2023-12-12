@@ -8,7 +8,7 @@ const options = {
 }
 
 const lines: Line[] = [];
-const numberOfLines = 50;
+const numberOfLines = 1;
 
 const draw = (ctx: CanvasRenderingContext2D) => {
   for (let i = 0; i < numberOfLines; i++) {

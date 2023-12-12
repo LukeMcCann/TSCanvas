@@ -6,7 +6,7 @@ const options = {
     height: CANVAS_HEIGHT,
 };
 const lines = [];
-const numberOfLines = 50;
+const numberOfLines = 1;
 const draw = (ctx) => {
     for (let i = 0; i < numberOfLines; i++) {
         lines.push(new Line({ ctx, width: options.width, height: options.height }));
